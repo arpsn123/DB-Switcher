@@ -145,6 +145,12 @@
             @csrf
             <button type="submit">Add Todo</button>
         </form>
+
+        <form action="{{ route("root")}}" method="get" style="text-align: center; margin-top: 20px;">
+            @csrf
+            <button type="submit">Change Database</button>
+        </form>
+
     </div>
 
 </body>

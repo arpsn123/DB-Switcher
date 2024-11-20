@@ -12,7 +12,7 @@ use App\Http\Controllers\set_database;
 Route::get('/', function () {
     // return view('welcome');
     return view("choose_database");
-});
+})->name('root');
 
 
 Route::get('/welcome/{db}', [set_database::class, 'welcome'])->name('todo.welcome');
