@@ -10,7 +10,7 @@ return new class extends Migration {
      */
     public function up(): void
     {
-        Schema::create('todo_details', function (Blueprint $table) {
+        Schema::connection('mysql')->create('todo_details_mysql', function (Blueprint $table) {
             $table->id();
             $table->string('name')->nullable();
             $table->string('details')->nullable();
@@ -24,6 +24,6 @@ return new class extends Migration {
      */
     public function down(): void
     {
-        Schema::dropIfExists('todo_details');
+        Schema::dropIfExists('todo_details_mysql');
     }
 };

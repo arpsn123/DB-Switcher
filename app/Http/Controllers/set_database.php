@@ -13,8 +13,15 @@ class set_database extends Controller
         if (!in_array($db, ['mysql', 'pgsql'])) {
             abort(400, 'Invalid database option');
         }
+
+
         Config::set('database.default', $db);
+
+        session(['database_name' => $db]);
+
         // return redirect(view('first'), ['database_name' => $db]);
+
+
         return redirect()->route('todo.welcome', ['db' => $db]);
     }
 
