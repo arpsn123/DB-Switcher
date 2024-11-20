@@ -10,16 +10,16 @@ class markasdone extends Controller
     public function update($id)
     {
 
-        $db = session('datadatabase_name');
+        $db = session('database_name');
         if($db === 'pgsql')
         {
-            $todo = todo_details_mysql::findOrFail($id);
+            $todo = todo_details_pgsql::findOrFail($id);
             $todo->isdone = true;
             $todo->save();
         }
         else if($db === 'mysql')
         {
-            $todo = todo_details_pgsql::findOrFail($id);
+            $todo = todo_details_mysql::findOrFail($id);
             $todo->isdone = true;
             $todo->save();
         }
