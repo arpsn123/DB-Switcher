@@ -14,6 +14,9 @@ Route::get('/', function () {
     return view("choose_database");
 });
 
+
+Route::get('/welcome/{db}', [set_database::class, 'welcome'])->name('todo.welcome');
+
 Route::post('/todo', function () {
     return view("todo_list");
 });

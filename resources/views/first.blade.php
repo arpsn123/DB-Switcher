@@ -19,7 +19,7 @@
 <body>
     <div class="container">
         <h1>
-            This is the first blade webpage i am building;
+            welcome To the Site, Database Choosen : {{$db}}
         </h1>
         <form action="/todo" method="POST">
             @csrf
