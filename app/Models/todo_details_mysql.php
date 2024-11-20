@@ -8,5 +8,5 @@ class todo_details_mysql extends Model
 {
     //
     protected $connection = 'mysql';
-    protected $table = todo_details_mysql;
+    protected $table = 'todo_details_mysql';
 }

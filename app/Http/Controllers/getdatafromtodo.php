@@ -17,7 +17,8 @@
 
 
 namespace App\Http\Controllers;
-use App\Models\todo_details;
+use App\Models\todo_details_mysql;
+use App\Models\todo_details_pgsql;
 use Illuminate\Http\Request;
 
 class getdatafromtodo extends Controller
@@ -25,7 +26,18 @@ class getdatafromtodo extends Controller
     public function getdata()
     {
         // Retrieve all todo data from the database
-        $todo_data = todo_details::all();
+
+        $db = session('database_name');
+        // dd($db);
+        if($db === 'pgsql')
+        {
+            $todo_data = todo_details_pgsql::all();
+        }
+        else if($db === 'mysql')
+        {
+            $todo_data = todo_details_mysql::all();
+        }
+        
         // Pass the data to the view
         return view('show_data', compact('todo_data'));
     }
